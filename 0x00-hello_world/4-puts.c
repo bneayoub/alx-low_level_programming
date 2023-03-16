@@ -1,9 +1,9 @@
 #include <stdio.h>
-/* 
-*Main functions of type int, and outputs 0 that marks success
-* 
+/*
+*main - function of type int
+*return: 0
 */
-int main(void) 
+int main(void)
 {
 puts("\"Programming is like building a multilingual puzzle");
 return(0);
