@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- * main - all single digits numberbers separated with , 
- *
- * Return: 0
+* main - all single digits numberbers separated with , 
+*
+* Return: 0
 */
 int main(void)
 {
