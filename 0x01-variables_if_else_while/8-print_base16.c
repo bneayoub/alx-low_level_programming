@@ -6,7 +6,7 @@
  * Return: 0
 */
 
- main(void)
+int main(void)
 {
 char number_char = '0';
 char alphabet = 'a';
