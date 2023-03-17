@@ -27,5 +27,6 @@ while (number1 < 100)
 	number1++;
 	number2 = number1 + 1;
 }
+putchar('\n')
 return (0);
 }
