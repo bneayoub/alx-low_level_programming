@@ -1,10 +1,10 @@
 #include "main.h"
-/**
- * main - _putchar alphabets
- *
- * Return: void
- */
 
+/**
+  * print_alphabet - prints alphabets 
+  *
+  * Retrun: void
+  */
 void print_alphabet(void)
 {
 	char character = 'a';
