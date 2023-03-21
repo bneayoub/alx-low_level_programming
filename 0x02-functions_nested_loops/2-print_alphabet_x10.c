@@ -1,6 +1,6 @@
-int _putchar(char c);
+#include "main.h"
 /**
- * main - _putchar alphabets
+ * print_alphabet_x10 - _putchar alphabets
  *
  * Return: 0
  */
@@ -8,6 +8,7 @@ void print_alphabet_x10(void)
 {
 	int j = 0;
 	char character = 'a';
+
 	while (j < 10)
 	{
 		while (character <= 'z')
