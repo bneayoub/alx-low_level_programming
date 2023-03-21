@@ -2,7 +2,7 @@
 
 /**
  * _islower - _putchar alphabets
- *
+ * @n: the number to be checked
  * Return: 0
  */
 int _islower(int c)
