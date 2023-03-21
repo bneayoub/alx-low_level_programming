@@ -1,5 +1,5 @@
 /**
- * main - ASCII range  97-122 / 65-90
+ * _isalpha - ASCII range  97-122 / 65-90
  *
  * Return: 0
  */
