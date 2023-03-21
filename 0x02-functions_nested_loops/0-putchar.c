@@ -1,20 +1,22 @@
-int _putchar(char c);
+#include "main.h"
+
 /**
- * main - _putchar
+ * main - Entry point
  *
- * Return: 0
+ * Return: - Always 0 (Success)
  */
+
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-	_putchar('\n');
+	char write[8] = "_putchar";
+	int i;
 
+	i = 0;
+	while (i <= 7)
+	{
+		_putchar(write[i]);
+		i++;
+	}
+	_putchar('\n');
 	return (0);
 }
