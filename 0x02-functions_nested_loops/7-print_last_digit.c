@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _abs - aboslute value
+ * print_last_digit - aboslute value
  * @n: the number to calculates
  * Return: 0
  */
