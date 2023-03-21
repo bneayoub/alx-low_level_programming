@@ -1,5 +1,4 @@
-int _putchar(int c);
-int _isalpha(int c);
+#include "main.h"
 
 /**
  * main - check the code.
