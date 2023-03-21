@@ -1,7 +1,11 @@
-#include<stdio.h>
-
-int put_char(void)
+#include <unistd.h>
+/**
+ * main - _putchar
+ *
+ * Return: 0
+*/
+int _putchar(char s)
 {
-    printf("_putchar");
+    write(1, &s, 1);
     return (0);
 }
