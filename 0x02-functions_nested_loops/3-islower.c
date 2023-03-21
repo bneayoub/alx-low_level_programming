@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * _islower - ASCII range  97-122 / 65-90
  *
