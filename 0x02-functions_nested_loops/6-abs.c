@@ -1,5 +1,5 @@
 /**
- * _islower - _putchar alphabets
+ * _abs - aboslute value
  * @n: the number to be checked
  * Return: 0
  */
