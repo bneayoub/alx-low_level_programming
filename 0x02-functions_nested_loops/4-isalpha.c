@@ -1,7 +1,6 @@
 /**
  * _isalpha - ASCII range  97-122 / 65-90
- * @n: the number to be checked
- *
+ * @c: the number to be checked
  * Return: 0
  */
 int _isalpha(int c)
