@@ -16,7 +16,7 @@ void times_table(void)
 		{
 			printf("%d", i * j);
 			fflush(stdout);
-			if (i * j == (i * j) % 10 && i * (j+1) == (i * (j+1))%10 && j != 9)
+			if (i * j == (i * j) % 10 && i * (j + 1) == (i * (j + 1)) % 10 && j != 9)
 			{
 				_putchar(',');
 				_putchar(' ');
