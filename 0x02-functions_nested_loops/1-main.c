@@ -1,4 +1,4 @@
-void print_alphabet(void);
+#include "main.h"
 /**
  * main - check the code
  *
