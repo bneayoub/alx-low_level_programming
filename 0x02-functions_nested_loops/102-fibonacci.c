@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
-  * main - entry point of the program
+  * main - Fibonaci 50 first
   *
   * Return: always 0
   */
