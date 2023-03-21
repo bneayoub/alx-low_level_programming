@@ -1,5 +1,5 @@
 /**
- * main - ASCII range  97-122 / 65-90
+ * _islower - ASCII range  97-122 / 65-90
  *
  * Return: 0
  */
