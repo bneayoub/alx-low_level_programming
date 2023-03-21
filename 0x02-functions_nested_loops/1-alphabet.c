@@ -2,7 +2,7 @@
 /**
  * main - _putchar alphabets
  *
- * Return: 0
+ * Return: void
  */
 
 void print_alphabet(void)
