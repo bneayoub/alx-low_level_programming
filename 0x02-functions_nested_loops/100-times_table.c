@@ -1,23 +1,23 @@
 #include "main.h"
 
 /**
- * printnumber - prints number
+ * prints_ncol - prints number
  * @n: number to print
  * Return: void
  */
 
-void printnumber(int n)
+void prints_ncol(int n)
 {
 	if (n < 0)
 	{
 		_putchar('-');
 		n = n * (-1);
-		printnumber(n);
+		prints_ncol(n);
 	}
 	else if (n >= 10)
 	{
-		printnumber(n / 10);
-		printnumber(n % 10);
+		prints_ncol(n / 10);
+		prints_ncol(n % 10);
 	}
 	else
 	{
@@ -26,8 +26,8 @@ void printnumber(int n)
 }
 
 /**
- * print_times_table - prints number multiplication table
- * @n: n the number of multiplication columns
+ * print_times_table - Table of multiplication
+ * @n: the number of mults
  */
 
 void print_times_table(int n)
@@ -44,7 +44,7 @@ void print_times_table(int n)
 			while (j < (n + 1))
 			{
 				num = i * j;
-				printnumber(num);
+				prints_ncol(num);
 				if (j < n && i * (j + 1) < 10)
 				{
 					_putchar(',');
