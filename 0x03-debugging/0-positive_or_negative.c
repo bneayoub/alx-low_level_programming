@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * positive_or_negative - prints the sign of the number
- *
+ * @n: number to be chekced
  * Return: void
  */
 void positive_or_negative(int n)
