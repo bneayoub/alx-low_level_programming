@@ -5,8 +5,8 @@
  */
 int main(void)
 {
-	int long long n;
-	int long long counter = 2;
+	long int n;
+	long int counter = 2;
 
 	n = 612852475143;
 
@@ -19,6 +19,6 @@ int main(void)
 		}
 		counter++;
 	}
-	printf("%llu\n", counter);
+	printf("%lu\n", counter);
 	return (1);
 }
