@@ -19,6 +19,6 @@ int main(void)
 		}
 		counter++;
 	}
-	printf("%lu\n", counter);
+	printf("%ld\n", counter);
 	return (0);
 }
