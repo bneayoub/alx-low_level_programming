@@ -1,6 +1,7 @@
 /**
- * _isdigit - is digital or not
- * @c: the number to be checked
+ * mul - multiplies two numbers
+ * @a: number1
+ * @b: number2
  * Return: 0 , 1
  */
 int mul(int a, int b)
