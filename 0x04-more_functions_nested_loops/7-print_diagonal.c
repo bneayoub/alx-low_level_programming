@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * print_diagonal - prints \ x n times
+ * @n: number of \ to print
+ * Return: void
+ */
 void print_diagonal(int n)
 {
 	int i = 0;
