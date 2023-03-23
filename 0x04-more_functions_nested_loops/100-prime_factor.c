@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - print largest primary factor
- * Return: void
+ * Return: 0
  */
 int main(void)
 {
@@ -20,5 +20,5 @@ int main(void)
 		counter++;
 	}
 	printf("%lu\n", counter);
-	return (1);
+	return (0);
 }
