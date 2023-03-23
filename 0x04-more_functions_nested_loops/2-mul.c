@@ -3,15 +3,7 @@
  * @c: the number to be checked
  * Return: 0 , 1
  */
-int _isdigit(int c)
+int mul(int a, int b)
 {
-	if (c >= 48 && c <= 57)
-	{
-		return (1);
-	}
-
-	else
-	{
-		return (0);
-	}
+	return (a * b);
 }
