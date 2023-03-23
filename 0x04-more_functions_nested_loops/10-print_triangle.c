@@ -15,7 +15,7 @@ void print_triangle(int size)
 		_putchar('\n');
 	}
 
-	for (i = 1; i <= size; i++)
+	while (i <= size)
 	{
 		while (j > 0)
 		{
@@ -28,6 +28,7 @@ void print_triangle(int size)
 			filler--;
 		}
 		_putchar('\n');
+		i++;
 		j = size - i;
 		filler = i;
 	}
