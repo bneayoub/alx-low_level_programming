@@ -1,4 +1,5 @@
 #include "main.h"
+#include<stdio.h>
 /**
  * print_array - check code
  * @a: the array
@@ -9,12 +10,17 @@ void print_array(int *a, int n)
 {
 	int i;
 
-	for (i = 0; i < n; i++)
+	i = 0;
+	if (n >= 0)
 	{
-		if (i != n - 1)
-			printf("%d, ", a[i]);
-		else
-			printf("%d", a[i]);
+		while (i < n)
+		{
+			if (i + 1 < n)
+				printf("%d, ", a[i]);
+			else
+				printf("%d", a[i]);
+			i++;
+		}
 	}
 	printf("\n");
 }
