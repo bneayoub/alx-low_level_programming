@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * _puts - check the code
  * @str: pointer to string
