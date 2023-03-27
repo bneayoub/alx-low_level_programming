@@ -1,7 +1,7 @@
 /**
  * _strlen - check the code
  * @s: pointer to string
- * Return: void.
+ * Return: len.
  */
 int _strlen(char *s)
 {
