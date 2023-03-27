@@ -1,22 +1,25 @@
 #include "main.h"
 /**
-  * print_array - check code
-  * @a: the array
-  * @n: the number of element to print
-  * Return: void
-  */
+ * print_array - check code
+ * @a: the array
+ * @n: the number of element to print
+ * Return: void
+ */
 void print_array(int *a, int n)
 {
-	int i = 0;
+	int i;
 
-	while (i < n)
+	i = 0;
+	if (n >= 0)
 	{
-		printf("%d", *(a + i));
-		if (i == (n - 1))
-			break;
-		printf(", ");
-		i++;
-
+		while (i < n)
+		{
+			if (i + 1 < n)
+				printf("%d, ", a[i]);
+			else
+				printf("%d", a[i]);
+			i++;
+		}
 	}
 	printf("\n");
 }
