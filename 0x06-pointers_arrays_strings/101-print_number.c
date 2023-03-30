@@ -13,12 +13,10 @@ void print_number(int n)
 		_putchar('-');
 		n = -n;
 	}
-
 	while (n / div >= 10)
 	{
 		div *= 10;
 	}
-
 	while (div != 0)
 	{
 		int digit = n / div;
