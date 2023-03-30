@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
- * infinite_add - adds two numbers
+ * print_buffer - prints a buffer
  * @b: string
  * @size: size
- * Return: pointer to result buffer, or 0 if result can't be stored
+ * Return: pointer to result buffer or 0
  */
 void print_buffer(char *b, int size)
 {
