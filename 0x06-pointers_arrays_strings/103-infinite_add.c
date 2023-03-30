@@ -1,53 +1,50 @@
 /**
  * infinite_add - adds two numbers
- * @n1: first number as string
- * @n2: second number as string
- * @r: buffer to store the result
- * @size_r: size of the buffer
- * Return: pointer to the result, or 0 if result cannot be stored in r
+ * @n1: first number to add
+ * @n2: second number to add
+ * @r: buffer to store result
+ * @size_r: size of buffer
+ *
+ * Return: pointer to result buffer, or 0 if result can't be stored
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int len1, len2, carry, sum, i, j;
+	int len1 = 0, len2 = 0, max_len = 0;
+	int sum, carry = 0, i, j;
 
-	len1 = 0;
 	while (n1[len1] != '\0')
 		len1++;
-	len2 = 0;
 	while (n2[len2] != '\0')
 		len2++;
-	if (len1 >= size_r || len2 >= size_r)
+
+	max_len = len1 > len2 ? len1 : len2;
+
+	if (max_len >= size_r)
 		return (0);
 
-	carry = 0;
-	i = len1 - 1;
-	j = len2 - 1;
-	r[size_r - 1] = '\0';
-	size_r--;
-	while (i >= 0 || j >= 0 || carry)
+	r[max_len] = '\0';
+	len1--;
+	len2--;
+	for (i = 0; i < max_len; i++)
 	{
 		sum = carry;
-		if (i >= 0)
-			sum += n1[i] - '0';
-		if (j >= 0)
-			sum += n2[j] - '0';
+		if (len1 >= 0)
+			sum += n1[len1] - '0';
+		if (len2 >= 0)
+			sum += n2[len2] - '0';
+		r[max_len - i - 1] = sum % 10 + '0';
 		carry = sum / 10;
-		r[size_r - 1] = sum % 10 + '0';
-		size_r--;
-		i--;
-		j--;
+		len1--;
+		len2--;
 	}
 
-	if (size_r < 0)
-		return (0);
-
-	i = 0;
-	while (r[i] != '\0')
+	if (carry != 0)
 	{
-		if (r[i] < '0' || r[i] > '9')
+		if (max_len + 1 >= size_r)
 			return (0);
-		i++;
+		for (j = max_len; j >= 0; j--)
+			r[j + 1] = r[j];
+		r[0] = carry + '0';
 	}
-
-	return (r + size_r + 1);
+	return (r);
 }
