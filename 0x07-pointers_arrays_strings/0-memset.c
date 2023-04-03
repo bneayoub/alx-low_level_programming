@@ -2,11 +2,11 @@
  * _memset - copies the character b to the first n character
  * to the string pointed to it
  *
- * @s: first number to add
- * @b: second number to add
- * @n: buffer to store result
+ * @s: string destination
+ * @b: constant character to copy
+ * @n: number of times to copy b into s
  *
- * Return: pointer to result buffer, or 0 if result can't be stored
+ * Return: pointer to s
  */
 char *_memset(char *s, char b, unsigned int n)
 {
