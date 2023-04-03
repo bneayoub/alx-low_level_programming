@@ -1,6 +1,7 @@
 /**
- * _strspn - searches for the first occurence
- * of the character c in the string s
+ * _strspn - calculate the prefix length of the initial segment 
+ * of a given string that consists entirely of characters 
+ * from another specified string.
  *
  * @s: string to be checked
  * @accept: set of chars that
