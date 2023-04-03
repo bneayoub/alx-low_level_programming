@@ -17,6 +17,7 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	{
 		len_src++;
 	}
+	len_src--;
 
 	if (len_src < n)
 	{
