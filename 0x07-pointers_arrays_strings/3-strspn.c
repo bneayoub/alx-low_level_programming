@@ -1,6 +1,6 @@
 /**
- * _strspn - calculate the prefix length of the initial segment 
- * of a given string that consists entirely of characters 
+ * _strspn - calculate the prefix length of the initial segment
+ * of a given string that consists entirely of characters
  * from another specified string.
  *
  * @s: string to be checked
