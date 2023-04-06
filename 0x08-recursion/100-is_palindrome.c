@@ -42,7 +42,7 @@ int _strlen_recursion(char *s)
 }
 
 /**
- * check_divisibility_recursion - checks if a string is palindrome
+ * is_palindrome - checks if a string is palindrome
  * using recursion
  *
  * @s: string to check
@@ -53,18 +53,4 @@ int _strlen_recursion(char *s)
 int is_palindrome(char *s)
 {
 	return (check_palindrome_recursion(s, 0, _strlen_recursion(s) - 1));
-}
-
-/**
- * check_divisibility_recursion - checks if a string is palindrome
- * using recursion
- *
- * @s: string to check
- *
- * Return: 0 if s is not palindrome
- * 1 if s is palindrome
- */
-int is_palindrome(char *s)
-{
-    return check_palindrome_recursion(s, 0, _strlen_recursion(s) - 1);
 }
