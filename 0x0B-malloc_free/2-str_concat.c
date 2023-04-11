@@ -14,15 +14,21 @@ char *str_concat(char *s1, char *s2)
 	char *temp1 = s1, *temp2 = s2;
 	char *concatenated;
 
-	while (*temp1 != '\0')
+	if (s1 != NULL)
 	{
-		len_s1++;
-		temp1++;
+		while (*temp1 != '\0')
+		{
+			len_s1++;
+			temp1++;
+		}
 	}
-	while (*temp2 != '\0')
+	if (s2 != NULL)
 	{
-		len_s2++;
-		temp2++;
+		while (*temp2 != '\0')
+		{
+			len_s2++;
+			temp2++;
+		}
 	}
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
