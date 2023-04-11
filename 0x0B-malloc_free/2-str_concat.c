@@ -28,15 +28,17 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 
 	concatenated = malloc((len_s1 + len_s2 + 1) * sizeof(char));
+	if (concatenated == NULL)
+		return (NULL);
 	for (i = 0; i < len_s1 + len_s2; i++)
 	{
 		if (i < len_s1)
 		{
-			concatenated[i] = s1[i];
+			concatenated[i] = (s1 == NULL) ? '\0' : s1[i];
 		}
 		else
 		{
-			concatenated[i] = s2[i - len_s1];
+			concatenated[i] = (s2 == NULL) ? '\0' : s2[i - len_s1];
 		}
 	}
 	concatenated[len_s1 + len_s2] = '\0';
