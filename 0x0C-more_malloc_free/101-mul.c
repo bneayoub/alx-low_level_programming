@@ -30,16 +30,54 @@ int check_digits(const char *str)
  *
  * Return: the sum of the two numbers as a string (must be freed by caller)
  */
+char *add_strings(char *num1, char *num2)
+{
+	int len1 = strlen(num1), len2 = strlen(num2);
+	int max_len = len1 > len2 ? len1 : len2;
+	char *result = calloc(max_len + 2, sizeof(char));
+	int carry = 0;
+	int i;
+
+	for (i = 0; i < max_len; i++)
+	{
+		int n1 = i < len1 ? num1[len1 - 1 - i] - '0' : 0;
+		int n2 = i < len2 ? num2[len2 - 1 - i] - '0' : 0;
+		int current_sum = n1 + n2 + carry;
+
+		result[max_len - i] = (current_sum % 10) + '0';
+		carry = current_sum / 10;
+	}
+
+	if (carry)
+	{
+		result[0] = carry + '0';
+	}
+	else
+	{
+		memmove(result, result + 1, max_len + 1);
+	}
+
+	return (result);
+}
+
+/**
+ * multiply_strings - multiplies two strings representing numbers
+ * @num1: first number as a string
+ * @num2: second number as a string
+ *
+ * Return: the product of the two numbers as a string (must be freed by caller)
+ */
 char *multiply_strings(const char *num1, const char *num2)
 {
 	int len1 = strlen(num1), len2 = strlen(num2);
-	char *result = calloc(len1 + len2 + 1, sizeof(char));
+	char *result = malloc((len1 + len2 + 1) * sizeof(char));
 	int i, j, k;
 
 	for (k = 0; k < len1 + len2; k++)
 	{
 		result[k] = '0';
 	}
+	result[len1 + len2] = '\0';
 
 	for (i = len2 - 1; i >= 0; i--)
 	{
