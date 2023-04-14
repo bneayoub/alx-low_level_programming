@@ -1,11 +1,26 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 
 char *create_array_x(int size);
 char *skip_leading_zeroes(char *str);
 void multiply_strings(char *prod, char *mult, int digit, int zeroes);
 void add_string_numbers(char *final_prod, char *next_prod, int next_len);
+
+/**
+ * find_len - Finds the length of a string.
+ * @str: The string to be measured.
+ *
+ * Return: The length of the string.
+ */
+int find_len(char *str)
+{
+	int len = 0;
+
+	while (*str++)
+		len++;
+
+	return (len);
+}
 
 /**
  * create_array_x - Allocates memory for an array
@@ -85,7 +100,7 @@ void multiply_strings(char *prod, char *mult, int digit, int zeroes)
 {
 	int mult_len, num, tens = 0;
 
-	mult_len = strlen(mult) - 1;
+	mult_len = find_len(mult) - 1;
 	mult += mult_len;
 
 	while (*prod)
@@ -194,11 +209,11 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	size = strlen(argv[1]) + strlen(argv[2]);
+	size = find_len(argv[1]) + find_len(argv[2]);
 	final_prod = create_array_x(size + 1);
 	next_prod = create_array_x(size + 1);
 
-	for (index = strlen(argv[2]) - 1; index >= 0; index--)
+	for (index = find_len(argv[2]) - 1; index >= 0; index--)
 	{
 		digit = char_to_int(*(argv[2] + index));
 		multiply_strings(next_prod, argv[1], digit, zeroes++);
