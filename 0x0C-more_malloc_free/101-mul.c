@@ -89,7 +89,7 @@ char *multiply_strings(const char *num1, const char *num2)
 		}
 		if (carry)
 		{
-			result[i] += carry;
+			result[i] = (result[i] - '0' + carry) % 10 + '0';
 		}
 	}
 
