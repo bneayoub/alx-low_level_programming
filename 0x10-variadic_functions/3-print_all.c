@@ -21,22 +21,26 @@ void print_all(const char *const format, ...)
 	while (format[i])
 	{
 		current = format[i];
-		should_print_comma = 1;
+		should_print_comma = 0;
 
 		switch (current)
 		{
 		case 'c':
 			printf("%c", (char)va_arg(args, int));
+			should_print_comma = 1;
 			break;
 		case 'i':
 			printf("%d", va_arg(args, int));
+			should_print_comma = 1;
 			break;
 		case 'f':
 			printf("%f", (float)va_arg(args, double));
+			should_print_comma = 1;
 			break;
 		case 's':
 			str = va_arg(args, const char *);
 			printf("%s", str ? str : "(nil)");
+			should_print_comma = 1;
 			break;
 		default:
 			should_print_comma = 0;
