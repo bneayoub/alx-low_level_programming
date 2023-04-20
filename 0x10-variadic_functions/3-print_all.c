@@ -10,46 +10,37 @@
  */
 void print_all(const char *const format, ...)
 {
-	va_list args;
 	int i = 0;
 	const char *str;
-	char current;
-	int should_print_comma;
+	const char *sep = "";
+
+	va_list args;
 
 	va_start(args, format);
 
-	while (format[i])
+	while (format && format[i])
 	{
-		current = format[i];
-		should_print_comma = 0;
-
-		switch (current)
+		switch (format[i])
 		{
 		case 'c':
-			printf("%c", (char)va_arg(args, int));
-			should_print_comma = 1;
+			printf("%s%c", sep, va_arg(args, int));
 			break;
 		case 'i':
-			printf("%d", va_arg(args, int));
-			should_print_comma = 1;
+			printf("%s%d", sep, va_arg(args, int));
 			break;
 		case 'f':
-			printf("%f", (float)va_arg(args, double));
-			should_print_comma = 1;
+			printf("%s%f", sep, va_arg(args, double));
 			break;
 		case 's':
 			str = va_arg(args, const char *);
-			printf("%s", str ? str : "(nil)");
-			should_print_comma = 1;
+			printf("%s%s", sep, str ? str : "(nil)");
 			break;
 		default:
-			should_print_comma = 0;
+			i++;
+			continue;
 		}
-
+		sep = ", ";
 		i++;
-
-		if (format[i] && should_print_comma)
-			printf(", ");
 	}
 
 	printf("\n");
