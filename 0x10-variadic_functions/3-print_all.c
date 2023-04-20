@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+
 /**
  * print_all - print args c,s,i,e,f... separated by a comma
  *
@@ -28,15 +29,16 @@ void print_all(const char *const format, ...)
 		else if (current == 's')
 		{
 			str = va_arg(args, const char *);
-			if (str == NULL)
-				printf("(nil)");
-			else
-				printf("%s", str);
+			printf("%s", str ? str : "(nil)");
 		}
-		if (format[i + 1] && (current == 'c' || current == 'i' ||
-		current == 'f' || current == 's'))
-			printf(", ");
+
 		i++;
+
+		if (format[i] && (current == 'c' || current == 'i' ||
+						  current == 'f' || current == 's'))
+		{
+			printf(", ");
+		}
 	}
 
 	printf("\n");
