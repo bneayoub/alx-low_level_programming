@@ -7,7 +7,7 @@
 
 /**
  * struct list_s - linked list singly
- * @str: string 
+ * @str: string
  * @len: length of str
  * @next: points to next node in the linked list
  */
