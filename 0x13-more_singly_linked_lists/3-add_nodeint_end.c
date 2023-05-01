@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * add_nodeint_end - appends elem at the ned
  *
@@ -9,7 +8,6 @@
  * Return: address of the new node
  * NULL returned otherwise
  */
-
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
 	listint_t *new_node;
