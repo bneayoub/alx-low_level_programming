@@ -8,25 +8,44 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t size = 0;
-	listint_t *tmp;
+	listint_t *tortoise, *hare, *tmp;
+	size_t nodes = 1, index;
 
-	while (*h)
+	if (*h == NULL || (*h)->next == NULL)
+		return (0);
+
+	tortoise = (*h)->next;
+	hare = ((*h)->next)->next;
+
+	while (hare && tortoise != hare)
 	{
-		size++;
-		if (*h <= (*h)->next)
+		tortoise = tortoise->next;
+		hare = (hare->next) ? hare->next->next : NULL;
+	}
+
+	if (hare)
+	{
+		tortoise = *h;
+		while (tortoise != hare)
 		{
-			tmp = (*h)->next;
-			free(*h);
-			*h = tmp;
+			nodes++;
+			tortoise = tortoise->next;
+			hare = hare->next;
 		}
-		else
+		tortoise = tortoise->next;
+		while (tortoise != hare)
 		{
-			free(*h);
-			*h = NULL;
-			break;
+			nodes++;
+			tortoise = tortoise->next;
 		}
 	}
 
-	return (size);
+	for (index = 0; index < nodes; index++)
+	{
+		tmp = (*h)->next;
+		free(*h);
+		*h = tmp;
+	}
+	*h = NULL;
+	return (nodes);
 }
