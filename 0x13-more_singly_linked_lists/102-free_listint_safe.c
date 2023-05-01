@@ -8,37 +8,40 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-    size_t nodes = 0, i;
-    listint_t **tmp, *next;
-    listint_t **node_arr = NULL;
+	size_t nodes = 0, i;
+	listint_t **tmp, *next;
+	listint_t **node_arr = NULL;
 
-    while (*h)
-    {
-        for (i = 0; i < nodes; i++)
-        {
-            if (*h == node_arr[i])
-            {
-                free(node_arr);
-                *h = NULL;
-                return (nodes);
-            }
-        }
+	if (h == NULL || *h == NULL)
+		return (0);
 
-        nodes++;
-        tmp = realloc(node_arr, nodes * sizeof(listint_t *));
-        if (!tmp)
-        {
-            free(node_arr);
-            exit(98);
-        }
-        node_arr = tmp;
-        node_arr[nodes - 1] = *h;
+	while (*h)
+	{
+		for (i = 0; i < nodes; i++)
+		{
+			if (*h == node_arr[i])
+			{
+				*h = NULL;
+				free(node_arr);
+				return (nodes);
+			}
+		}
 
-        next = (*h)->next;
-        free(*h);
-        *h = next;
-    }
+		nodes++;
+		tmp = realloc(node_arr, nodes * sizeof(listint_t *));
+		if (!tmp)
+		{
+			free(node_arr);
+			exit(98);
+		}
+		node_arr = tmp;
+		node_arr[nodes - 1] = *h;
 
-    free(node_arr);
-    return (nodes);
+		next = (*h)->next;
+		free(*h);
+		*h = next;
+	}
+
+	free(node_arr);
+	return (nodes);
 }
