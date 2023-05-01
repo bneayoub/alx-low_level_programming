@@ -8,44 +8,37 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *tortoise, *hare, *tmp;
-	size_t nodes = 1, index;
+    size_t nodes = 0, i;
+    listint_t **tmp, *next;
+    listint_t **node_arr = NULL;
 
-	if (*h == NULL || (*h)->next == NULL)
-		return (0);
+    while (*h)
+    {
+        for (i = 0; i < nodes; i++)
+        {
+            if (*h == node_arr[i])
+            {
+                free(node_arr);
+                *h = NULL;
+                return (nodes);
+            }
+        }
 
-	tortoise = (*h)->next;
-	hare = ((*h)->next)->next;
+        nodes++;
+        tmp = realloc(node_arr, nodes * sizeof(listint_t *));
+        if (!tmp)
+        {
+            free(node_arr);
+            exit(98);
+        }
+        node_arr = tmp;
+        node_arr[nodes - 1] = *h;
 
-	while (hare && tortoise != hare)
-	{
-		tortoise = tortoise->next;
-		hare = (hare->next) ? hare->next->next : NULL;
-	}
+        next = (*h)->next;
+        free(*h);
+        *h = next;
+    }
 
-	if (hare)
-	{
-		tortoise = *h;
-		while (tortoise != hare)
-		{
-			nodes++;
-			tortoise = tortoise->next;
-			hare = hare->next;
-		}
-		tortoise = tortoise->next;
-		while (tortoise != hare)
-		{
-			nodes++;
-			tortoise = tortoise->next;
-		}
-	}
-
-	for (index = 0; index < nodes; index++)
-	{
-		tmp = (*h)->next;
-		free(*h);
-		*h = tmp;
-	}
-	*h = NULL;
-	return (nodes);
+    free(node_arr);
+    return (nodes);
 }
