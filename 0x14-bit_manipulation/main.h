@@ -1,5 +1,5 @@
 #ifndef MAIN
-#define MAINE
+#define MAIN
 
 #include <stdbool.h>
 #include <string.h>
