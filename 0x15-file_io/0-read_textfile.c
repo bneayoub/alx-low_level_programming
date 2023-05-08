@@ -14,11 +14,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	read_f = read(fd, buf, letters);
 	write_f = write(1, buf, read_f);
-	if (!filename || fd == -1 || read_f == -1 || write_f == -1)
+	if (!filename || fd == -1 || read_f == -1 || write_f == -1
+	|| write_f != read_f)
+	{
+		free(buf);
 		return (0);
-	
+	}
 
 	close(fd);
 
-	return (write(1, buf, read_f));
+	return (write_f);
 }
