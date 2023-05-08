@@ -15,3 +15,10 @@ void _puts(char *str)
 	}
 	_putchar('\n');
 }
+
+void _puts(char *str)
+{
+
+	return (write(1, str, strlen(str)));
+}
+
