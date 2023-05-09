@@ -7,32 +7,26 @@
  *
  * Return: 0, 97, 98, 99, 100 depending on success
  * or error due to a type of errors
-*/
+ */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, r, w;
-	char *buf;
+	int file_from = open(argv[1], O_RDONLY), file_to, r, w;
+	char *buf = allocate_buffer(argv[2]);
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_file_from file_file_to\n");
 		exit(97);
 	}
-
-	buf = allocate_buffer(argv[2]);
-	file_from = open(argv[1], O_RDONLY);
 	r = read(file_from, buf, 1024);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
 	do {
 		if (file_from == -1 || r == -1)
 		{
-			dprintf(STDERR_FILENO,
-					"Error: Can't read file_from file %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read file_from file %s\n", argv[1]);
 			free(buf);
 			exit(98);
 		}
-
 		w = write(file_to, buf, r);
 		if (file_to == -1 || w == -1)
 		{
@@ -45,8 +39,16 @@ int main(int argc, char *argv[])
 		file_to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (r > 0);
 	free(buf);
-	close(file_from);
-	close(file_to);
+	if (close(file_from) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
+	if (close(file_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
+		exit(100);
+	}
 	return (0);
 }
 
@@ -56,7 +58,7 @@ int main(int argc, char *argv[])
  * @file: file that we are creating buffer for
  *
  * Return: buffer
-*/
+ */
 char *allocate_buffer(char *file)
 {
 	char *buffer;
